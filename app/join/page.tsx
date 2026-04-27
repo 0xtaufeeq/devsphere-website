@@ -4,14 +4,16 @@ import Link from "next/link"
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "framer-motion"
 import { FormEvent, KeyboardEvent, useMemo, useState } from "react"
 import { JoinConfetti } from "@/components/join-confetti"
-import { joinApplicationSchema, type JoinApplicationInput } from "@/lib/join-application-schema"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { joinApplicationSchema, ROLE_INTEREST_OPTIONS, type JoinApplicationInput } from "@/lib/join-application-schema"
 
 type StepField = {
   id: keyof JoinApplicationInput
   label: string
   hint: string
   placeholder: string
-  type: "text" | "email" | "tel" | "textarea"
+  type: "text" | "email" | "tel" | "textarea" | "select"
+  options?: readonly string[]
   required?: boolean
 }
 
@@ -19,8 +21,16 @@ const STEP_FIELDS: StepField[] = [
   { id: "fullName", label: "What is your full name?", hint: "Let us know how to address you.", placeholder: "John Doe", type: "text", required: true },
   { id: "email", label: "What is your email address?", hint: "We will use this for updates on your application.", placeholder: "john@college.edu", type: "email", required: true },
   { id: "phone", label: "What is your phone number?", hint: "Include your WhatsApp number if possible.", placeholder: "+91 98765 43210", type: "tel", required: true },
-  { id: "yearBranch", label: "What year and branch are you in?", hint: "Example: 2nd Year CSE", placeholder: "3rd Year Information Science", type: "text", required: true },
-  { id: "roleInterest", label: "Which leadership vertical are you most interested in?", hint: "Examples: Tech, Media, Events, PR, Operations.", placeholder: "Tech + Community", type: "text", required: true },
+  { id: "yearBranch", label: "What year and branch are you in?", hint: "Example: 2nd Year BCA (Kalvium)", placeholder: "3rd Year BTech (H)", type: "text", required: true },
+  {
+    id: "roleInterest",
+    label: "Which Vertical are you most interested in?",
+    hint: "Choose one option from the dropdown.",
+    placeholder: "Select an option",
+    type: "select",
+    options: ROLE_INTEREST_OPTIONS,
+    required: true,
+  },
   { id: "experience", label: "What relevant experience do you bring?", hint: "Share projects, events, clubs, internships, or initiatives.", placeholder: "Tell us about your work and impact...", type: "textarea", required: true },
   { id: "motivation", label: "Why do you want to join the leadership team?", hint: "We are looking for ownership, initiative, and clarity.", placeholder: "Describe your motivation and what you want to build...", type: "textarea", required: true },
   { id: "commitment", label: "How many hours per week can you commit?", hint: "Be realistic and honest.", placeholder: "8 to 10 hours weekly", type: "text", required: true },
@@ -314,6 +324,25 @@ export default function JoinLeadershipPage() {
                         required={field.required}
                         className="w-full resize-none rounded-2xl border border-border/70 bg-background/55 px-5 py-4 text-base text-foreground shadow-inner outline-none transition [transition-duration:220ms] focus:border-primary/80 focus:shadow-[0_0_0_3px_rgba(231,138,83,0.2)] focus:ring-0"
                       />
+                    ) : field.type === "select" ? (
+                      <Select value={data[field.id]} onValueChange={updateField} required={field.required}>
+                        <SelectTrigger
+                          className="h-14 w-full rounded-2xl border-border/70 bg-background/55 px-5 text-base text-foreground shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_28px_-16px_rgba(231,138,83,0.45)] transition [transition-duration:220ms] hover:border-primary/60 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_36px_-16px_rgba(231,138,83,0.58)] focus-visible:border-primary/85 focus-visible:shadow-[0_0_0_3px_rgba(231,138,83,0.2),0_16px_36px_-16px_rgba(231,138,83,0.5)] focus-visible:ring-0"
+                        >
+                          <SelectValue placeholder={field.placeholder} />
+                        </SelectTrigger>
+                        <SelectContent className="rounded-2xl border-primary/30 bg-[linear-gradient(180deg,rgba(16,16,18,0.96),rgba(8,8,10,0.98))] text-foreground shadow-[0_0_0_1px_rgba(231,138,83,0.2),0_24px_72px_-26px_rgba(231,138,83,0.5)] backdrop-blur-xl">
+                          {field.options?.map((option) => (
+                            <SelectItem
+                              key={option}
+                              value={option}
+                              className="rounded-xl py-3 text-base text-foreground data-[highlighted]:bg-primary data-[highlighted]:text-black data-[state=checked]:bg-primary/25 data-[state=checked]:text-white"
+                            >
+                              {option}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     ) : (
                       <input
                         value={data[field.id]}
