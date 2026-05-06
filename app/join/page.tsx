@@ -74,7 +74,7 @@ export default function JoinChatPage() {
   }
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-[#0A0A0B] text-foreground">
+    <div className="relative h-[100dvh] w-full overflow-hidden bg-[#0A0A0B] text-foreground">
       <JoinConfetti fire={step === "done"} />
 
       {/* Background Gradients (doss.com aesthetic) */}
@@ -155,7 +155,7 @@ export default function JoinChatPage() {
           </div>
 
           {/* Input Area */}
-          <div className="z-20 border-t border-white/[0.05] bg-black/40 p-4 md:p-6 backdrop-blur-xl pb-6 md:pb-6">
+          <div className="z-20 border-t border-white/[0.05] bg-black/40 px-4 py-4 md:p-6 backdrop-blur-xl pb-[max(16px,env(safe-area-inset-bottom))] md:pb-6">
             <form
               onSubmit={(e) => { e.preventDefault(); handleSend(); }}
               className="relative flex items-center"
