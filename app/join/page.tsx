@@ -60,6 +60,9 @@ export default function JoinChatPage() {
           })
           botResponseText = "All done! I've successfully submitted your application to the DevSphere team. We'll be in touch soon. Thank you!"
           setStep("done")
+        } else if (parsed.chatEnded) {
+          botResponseText = "Chat ended due to too many off-topic questions. Please reload the page if you want to try again and focus on the application."
+          setStep("done")
         }
       } catch (e) {
         // Normal text response
