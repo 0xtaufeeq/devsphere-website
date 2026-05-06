@@ -91,13 +91,13 @@ export default function JoinChatPage() {
         />
       </div>
 
-      <main className="relative z-10 mx-auto flex h-screen w-full max-w-3xl flex-col justify-center px-4 py-8 md:py-12">
-        <div className="flex flex-col h-[85vh] max-h-[800px] w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-[#121214]/60 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset,0_24px_80px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl">
+      <main className="relative z-10 mx-auto flex h-[100dvh] w-full max-w-3xl flex-col justify-center p-2 sm:p-4 md:py-12">
+        <div className="flex flex-col h-full md:h-[85vh] md:max-h-[800px] w-full overflow-hidden rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#121214]/60 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset,0_24px_80px_-20px_rgba(0,0,0,0.8)] backdrop-blur-xl">
 
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-white/[0.05] bg-black/20 px-6 py-4 backdrop-blur-md">
+          <div className="flex items-center justify-between border-b border-white/[0.05] bg-black/20 px-4 py-3 md:px-6 md:py-4 backdrop-blur-md">
             <div>
-              <h1 className="font-semibold tracking-tight text-white/90">DevSphere Leadership Application Form</h1>
+              <h1 className="text-sm md:text-base font-semibold tracking-tight text-white/90">DevSphere Leadership Application Form</h1>
             </div>
             <div className="flex items-center gap-2">
               <div className="size-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />
@@ -106,7 +106,7 @@ export default function JoinChatPage() {
           </div>
 
           {/* Chat Messages */}
-          <div className="flex-1 overflow-y-auto px-6 py-6 scroll-smooth">
+          <div className="flex-1 overflow-y-auto px-4 py-4 md:px-6 md:py-6 scroll-smooth">
             <div className="space-y-6">
               <AnimatePresence initial={false}>
                 {messages.map((msg, idx) => (
@@ -121,7 +121,7 @@ export default function JoinChatPage() {
                       {msg.role === "user" ? <User size={14} /> : <Bot size={14} />}
                     </div>
 
-                    <div className={`max-w-[80%] rounded-2xl px-5 py-3.5 text-[15px] leading-relaxed shadow-sm ${msg.role === "user"
+                    <div className={`max-w-[88%] md:max-w-[80%] rounded-2xl px-4 py-3 md:px-5 md:py-3.5 text-[14px] md:text-[15px] leading-relaxed shadow-sm ${msg.role === "user"
                         ? "rounded-br-sm bg-primary text-primary-foreground"
                         : "rounded-bl-sm border border-white/[0.05] bg-white/[0.03] text-white/85"
                       }`}>
@@ -155,7 +155,7 @@ export default function JoinChatPage() {
           </div>
 
           {/* Input Area */}
-          <div className="border-t border-white/[0.05] bg-black/20 p-4 backdrop-blur-md">
+          <div className="border-t border-white/[0.05] bg-black/20 p-3 md:p-4 backdrop-blur-md">
             <form
               onSubmit={(e) => { e.preventDefault(); handleSend(); }}
               className="relative flex items-center"
@@ -166,14 +166,14 @@ export default function JoinChatPage() {
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 placeholder={step === "done" ? "Application completed" : "Type your message..."}
-                className="w-full rounded-full border border-white/10 bg-white/5 px-6 py-4 pr-16 text-[15px] text-white/90 placeholder:text-white/30 focus:border-primary/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
+                className="w-full rounded-full border border-white/10 bg-white/5 px-5 py-3.5 md:px-6 md:py-4 pr-14 md:pr-16 text-[14px] md:text-[15px] text-white/90 placeholder:text-white/30 focus:border-primary/50 focus:bg-white/10 focus:outline-none focus:ring-1 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50 transition-all"
               />
               <motion.button
                 disabled={!inputText.trim() || isLoading || step === "done"}
                 whileHover={inputText.trim() && !isLoading && step !== "done" ? { scale: 1.05 } : {}}
                 whileTap={inputText.trim() && !isLoading && step !== "done" ? { scale: 0.95 } : {}}
                 type="submit"
-                className="absolute right-2 flex size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md transition-colors disabled:cursor-not-allowed disabled:opacity-50"
+                className="absolute right-1.5 md:right-2 flex size-9 md:size-10 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md transition-colors disabled:cursor-not-allowed disabled:opacity-50"
               >
                 {step === "done" ? (
                   <span className="text-xs font-semibold">Done</span>
