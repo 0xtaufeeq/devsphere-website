@@ -19,95 +19,36 @@ type TeamMember = {
 
 const TEAM_MEMBERS: TeamMember[] = [
   {
-    name: "Ritam Rao",
+    name: "Amith Emmanuel",
     role: "President",
-    imageSrc: "/ritam.jpg",
+    imageSrc: "/amith.webp",
+  },
+  {
+    name: "Harshul Kala",
+    role: "Tech Lead",
+    imageSrc: "/harshul.webp",
     socials: {
-      linkedin: "https://www.linkedin.com/in/ritam-rao-86503a2b6",
-      github: "https://github.com/RitamRoa",
-      instagram: "https://www.instagram.com/ritam.roa",
+      linkedin: "https://www.linkedin.com/in/haru-l41n-pr0t0",
+      github: "https://github.com/Wired-Navi0x17",
     },
   },
   {
-    name: "Samarth Kadam",
-    role: "Vice President",
-    imageSrc: "/sam.jpg",
+    name: "N Priyanka",
+    role: "Secretary",
+    imageSrc: "/priyanka.webp",
     socials: {
-      linkedin: "https://www.linkedin.com/in/samarth-kadam-008563331/",
-      github: "https://github.com/IamSamk",
+      linkedin: "https://www.linkedin.com/in/priyanka-nagaraj-143033378?utm_source=share_via&utm_content=profile&utm_medium=member_android",
     },
   },
   {
-    name: "Sharadh Naidu",
-    role: "Technical Lead",
-    imageSrc: "/sharadh.jpg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/sharadh-naidu-72259a32b/",
-      github: "https://github.com/SharadhNaidu",
-    },
-  },
-  {
-    name: "Puneetha Shankar",
-    role: "Events and Experiences",
-    imageSrc: "/puneetha.jpeg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/puneetha-s-shankar-079261328/",
-      github: "https://github.com/Puneetha-S-Shankar",
-      instagram: "https://www.instagram.com/_puneethaa?igsh=MXhpcG1mdDk1eGJrbg==",
-    },
-  },
-  {
-    name: "Jathin Kirani",
-    role: "Media, Events and Experiences",
-    imageSrc: "/jathin.png",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/jathin-kirani-nagaraj-2252152b7/",
-      github: "https://github.com/Jathin-KN",
-      instagram: "https://www.instagram.com/jack.k_28?igsh=MTZycms0NzNocjFxMA==",
-    },
-  },
-  { name: "Sharan Prabhu", role: "Media", imageSrc: "/sharan.jpg" },
-  {
-    name: "B.Lalith Aditya",
-    role: "Media, Events and Experiences",
-    imageSrc: "/lalith.png",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/lalith-aditya-b-0a99b3312/",
-    },
-  },
-  {
-    name: "Naksh Prajapati",
+    name: "Maziha Athaullah",
     role: "Public Relations",
-    imageSrc: "/naksh.jpg",
-    socials: {
-      github: "https://github.com/thenakshprajapat/",
-      linkedin: "https://linkedin.com/in/thenakshprajapat/",
-    },
+    imageSrc: "/maziha.webp",
   },
   {
-    name: "Akarsh Raja",
-    role: "Tech",
-    imageSrc: "/akarsh.jpg",
-    socials: {
-      github: "https://github.com/thatjar",
-      linkedin: "https://linkedin.com/in/akarshraja",
-    },
-  },
-  {
-    name: "Shreesha S S",
-    role: "Tech",
-    imageSrc: "/shreesha.jpg",
-    socials: {
-      github: "https://github.com/nomi-26/",
-    },
-  },
-  {
-    name: "Pranav Krishna",
-    role: "Events and Experiences",
-    imageSrc: "/pranav,jpg.jpg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/pranav-prasanna-krishna-97033832b",
-    },
+    name: "Rabiya",
+    role: "Core Team",
+    imageSrc: "/rabiya.webp",
   },
 ]
 
@@ -115,7 +56,7 @@ const ADVISORS: TeamMember[] = [
   {
     name: "Dr. Merin Thomas",
     role: "Faculty Advisor",
-    imageSrc: "/ProfMerin.png",
+    imageSrc: "/ProfMerin.webp",
     socials: {
       linkedin: "https://www.linkedin.com/in/dr-merin-thomas/",
     },
@@ -123,7 +64,7 @@ const ADVISORS: TeamMember[] = [
   {
     name: "Taufeeq Riyaz",
     role: "Founder and Advisor",
-    imageSrc: "/Taufeeq.jpg",
+    imageSrc: "/Taufeeq.webp",
     socials: {
       linkedin: "https://linkedin.com/in/taufeeq",
       github: "https://github.com/0xtaufeeq",
@@ -132,39 +73,28 @@ const ADVISORS: TeamMember[] = [
     },
   },
   {
-    name: "Sristi Losalka",
-    role: "Marketing Advisor",
-    imageSrc: "/sristi.jpg",
-  },
-  { name: "Sagar N Rao", role: "Design Advisor", imageSrc: "/Sagar.jpg" },
-  {
-    name: "Sushanth Harsha",
-    role: "Content Advisor",
-    imageSrc: "/harsha.jpg",
+    name: "Samarth Kadam",
+    role: "Advisor",
+    imageSrc: "/sam.webp",
     socials: {
-      linkedin: "https://www.linkedin.com/in/sushanth-h-9344a0220/",
-      github: "https://github.com/SushanthHarsha/",
+      linkedin: "https://www.linkedin.com/in/samarth-kadam-008563331/",
+      github: "https://github.com/IamSamk",
     },
   },
   {
-    name: "Kaultilya DK",
-    role: "Technical Advisor",
-    imageSrc: "/Kautilya.jpg",
+    name: "Ritam Rao",
+    role: "Advisor",
+    imageSrc: "/ritam.webp",
     socials: {
-      linkedin: "https://www.linkedin.com/in/kautilyadk/",
-      github: "https://github.com/kautilyadevaraj",
-      instagram: "https://www.instagram.com/kautilyadevraj/",
+      linkedin: "https://www.linkedin.com/in/ritam-rao-86503a2b6",
+      github: "https://github.com/RitamRoa",
+      instagram: "https://www.instagram.com/ritam.roa",
     },
   },
   {
-    name: "Pushan T",
-    role: "Technical Advisor",
-    imageSrc: "/Pushan.jpg",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/pushant/",
-      github: "https://github.com/Pushan2005",
-      instagram: "https://www.instagram.com/pushan_fillertext",
-    },
+    name: "Yashas",
+    role: "Advisor",
+    imageSrc: "/placeholder.svg",
   },
 ]
 
